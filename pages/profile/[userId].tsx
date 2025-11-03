@@ -1,7 +1,7 @@
 import apiClient from '@/src/lib/apiClient';
 import { PostType, Profile } from '@/src/types';
 import { profile } from 'console';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { notFound } from 'next/navigation';
 import React from 'react'
 
@@ -10,7 +10,7 @@ type Props ={
     posts: PostType[];
 };
 
-export const getServerSideProps: GetServerSideProps = async (context: any) => {
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
     const {userId} = context.query;
 
     try{
